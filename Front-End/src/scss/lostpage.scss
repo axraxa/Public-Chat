@@ -1,0 +1,14 @@
+.centered {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.LostButton {
+  text-decoration: none;
+  color: red;
+  background-color: black;
+  padding: 20px 10px;
+  border-radius: 5px;
+}
