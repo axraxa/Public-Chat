@@ -73,10 +73,30 @@ $input-height: 30px;
         align-items: center;
         column-gap: 10px;
         margin-bottom: 5px;
+        overflow: visible;
         .leftSection {
+          position: relative;
+          overflow: visible;
+          .usersname {
+            display: none;
+            position: absolute;
+            background-color: $border-color;
+            max-width: 100px;
+            padding: 1px 2px;
+            cursor: default;
+            white-space: nowrap;
+            left: -10px;
+            top: -10px;
+          }
           img {
             width: 30px;
             border-radius: 50%;
+            &:hover + .usersname {
+              display: block;
+            }
+            &:hover {
+              cursor: pointer;
+            }
           }
         }
         .rightSection {
@@ -94,6 +114,11 @@ $input-height: 30px;
         flex-direction: row-reverse;
         .rightSection {
           align-items: end;
+        }
+        .leftSection{
+          .usersname{
+            right: -10px;
+          }
         }
       }
     }

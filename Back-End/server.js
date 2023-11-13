@@ -25,7 +25,7 @@ app.use(express.json());
 app.use("/oauth", Oauth);
 
 io.on("connection", (socket) => {
-  console.log("User Connected");
+  console.log("User Connected", socket.id);
 
   //events
   socket.on("sendingMessage", async (data) => {
@@ -44,7 +44,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("disconnect", () => {
-    console.log("User Disconnected");
+    console.log("User Disconnected", socket.id);
   });
 });
 

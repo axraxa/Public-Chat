@@ -118,6 +118,7 @@ const MainPage = () => {
                 <div className="usersMessage" key={index}>
                   <div className="leftSection">
                     <img src={msg.photo} alt="" />
+                    <p className="usersname">{msg.name}</p>
                   </div>
                   <div className="rightSection">
                     <p className="message">{msg.message}</p>
@@ -127,6 +128,7 @@ const MainPage = () => {
                 <div className="someonesMessage" key={index}>
                   <div className="leftSection">
                     <img src={msg.photo} alt="" />
+                    <p className="usersname">{msg.name}</p>
                   </div>
                   <div className="rightSection">
                     <p className="message">{msg.message}</p>
