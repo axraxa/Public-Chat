@@ -26,7 +26,7 @@ export const reducer = (state, action) => {
     case "FIRSTLY_FETCHED_MESSAGES":
       return {
         ...state,
-        messages: [...action.payload.reverse()],
+        messages: [...action.payload],
       };
     case "USER_LOGOUT":
       return {
