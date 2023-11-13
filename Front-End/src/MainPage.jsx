@@ -4,7 +4,9 @@ import { useMyContext } from "./Context";
 import { useEffect, useRef, useState } from "react";
 import { io } from "socket.io-client";
 import axios from "axios";
-const socket = io("http://127.0.0.1:3000");
+import { backendUrl } from "../env";
+const backendurl = backendUrl;
+const socket = io(`${backendurl}/`);
 
 const MainPage = () => {
   const { state, dispatch } = useMyContext();
@@ -23,7 +25,7 @@ const MainPage = () => {
       return;
     }
     axios
-      .get(`http://127.0.0.1:3000/oauth/messages/${0}`, {
+      .get(`${backendurl}/oauth/messages/${0}`, {
         headers: { Authorization: user?.token },
       })
       .then((res) => {
@@ -59,7 +61,7 @@ const MainPage = () => {
   }
 
   async function auth() {
-    const response = await fetch("http://127.0.0.1:3000/oauth/request", {
+    const response = await fetch(`${backendurl}/oauth/request`, {
       method: "post",
     });
     const data = await response.json();
@@ -74,7 +76,7 @@ const MainPage = () => {
   function handleScroll() {
     if (containerRef.current.scrollTop == 0 && !noMoreMessages) {
       axios
-        .get(`http://127.0.0.1:3000/oauth/messages/${state.messages.length}`, {
+        .get(`${backendurl}/oauth/messages/${state.messages.length}`, {
           headers: { Authorization: user.token },
         })
         .then((res) => {

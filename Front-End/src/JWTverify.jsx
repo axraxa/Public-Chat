@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useMyContext } from "./Context";
 import GoogleButton from "react-google-button";
+import { backendUrl } from "../env";
+const backendurl = backendUrl;
 
 const JWTverify = () => {
   const { token } = useParams();
@@ -11,7 +13,7 @@ const JWTverify = () => {
   useEffect(() => {
     const currentToken = token.replace(/jemaliBidzia/g, ".");
     axios
-      .get(`http://127.0.0.1:3000/oauth/jwtverify`, {
+      .get(`${backendurl}/oauth/jwtverify`, {
         headers: { Authorization: currentToken },
       })
       .then((res) => {
@@ -38,8 +40,7 @@ const JWTverify = () => {
   return (
     <div className="container">
       <div className="chatContainer">
-        <div className="mainSection">
-        </div>
+        <div className="mainSection"></div>
         <form className="typingSection" onSubmit={(e) => e.preventDefault(e)}>
           <GoogleButton />
         </form>
