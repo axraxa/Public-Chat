@@ -5,7 +5,7 @@ const messageSchema = new Schema({
   mail: { type: String, required: true },
   photo: { type: String, default: "models/no-picture.jpg" },
   name: { type: String, required: true },
-  date: { type: Date, default: Date.now() },
+  date: { type: Date, default: () => new Date() },
 });
 
 module.exports = mongoose.model("Message", messageSchema);
