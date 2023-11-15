@@ -33,7 +33,7 @@ io.on("connection", (socket) => {
       const newMessage = new Message({
         name: data.name,
         mail: data.mail,
-        message: data.message,
+        message: data.message.trim(),
         photo: data.photo,
       });
       await newMessage.save();
