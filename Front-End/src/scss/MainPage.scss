@@ -115,8 +115,8 @@ $input-height: 30px;
         .rightSection {
           align-items: end;
         }
-        .leftSection{
-          .usersname{
+        .leftSection {
+          .usersname {
             right: -10px;
           }
         }
@@ -153,6 +153,9 @@ $input-height: 30px;
         &::placeholder {
           color: $text-color;
         }
+        @media (max-width: 500px) {
+          width: 50%;
+        }
       }
       button {
         background-color: $base-color;
@@ -164,6 +167,9 @@ $input-height: 30px;
         padding: 0 4px 0 6px;
         &:hover {
           cursor: pointer;
+        }
+        @media (max-width: 500px) {
+          flex: 1;
         }
       }
     }
