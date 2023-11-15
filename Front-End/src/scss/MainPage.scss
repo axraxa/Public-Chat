@@ -141,7 +141,7 @@ $input-height: 30px;
       }
       input[type="text"] {
         outline: none;
-        width: 70%;
+        width: 60%;
         height: $input-height;
         padding: 0 10px;
         background-color: $base-color;
@@ -168,9 +168,7 @@ $input-height: 30px;
         &:hover {
           cursor: pointer;
         }
-        @media (max-width: 500px) {
-          flex: 1;
-        }
+        flex: 1;
       }
     }
   }
