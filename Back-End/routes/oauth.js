@@ -73,7 +73,7 @@ router.get(`/messages/:length`, async (req, res, next) => {
     const length = req.params.length;
     if (length == 0) {
       const messages = await Message.find()
-        .sort({ date: "desc" })
+        .sort({ date: "asc" })
         .skip(length)
         .limit(20);
       return res.send(messages);
@@ -84,7 +84,7 @@ router.get(`/messages/:length`, async (req, res, next) => {
       if (err) return res.send({ msg: "You are not registered buddy:)" });
     });
     const messages = await Message.find()
-      .sort({ date: "desc" })
+      .sort({ date: "asc" })
       .skip(length)
       .limit(20);
     if (messages.length > 0) return res.send(messages);

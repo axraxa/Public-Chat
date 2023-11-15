@@ -21,7 +21,7 @@ export const reducer = (state, action) => {
     case "FETCHED_MESSAGES":
       return {
         ...state,
-        messages: [...action.payload.reverse(), ...state.messages],
+        messages: [...action.payload, ...state.messages],
       };
     case "FIRSTLY_FETCHED_MESSAGES":
       return {
