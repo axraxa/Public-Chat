@@ -99,13 +99,19 @@ const MainPage = () => {
 
   function SendingMessage(e) {
     e.preventDefault();
-    socket.emit("sendingMessage", {
-      name: user.name,
-      mail: user.mail,
-      message: msg,
-      photo: user.photo,
-    });
-    setMsg("");
+    if (0 < msg.trim().length <= 300) {
+      socket.emit("sendingMessage", {
+        name: user.name,
+        mail: user.mail,
+        message: msg,
+        photo: user.photo,
+      });
+      setMsg("");
+    } else if (msg.trim().length == 0) {
+      alert("Write something before you send :)");
+    } else {
+      alert("Text is too long , it must be under 300 character :)");
+    }
   }
 
   return (

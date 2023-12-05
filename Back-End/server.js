@@ -30,14 +30,16 @@ io.on("connection", (socket) => {
   //events
   socket.on("sendingMessage", async (data) => {
     try {
-      const newMessage = new Message({
-        name: data.name,
-        mail: data.mail,
-        message: data.message.trim(),
-        photo: data.photo,
-      });
-      await newMessage.save();
-      io.emit("chatMessage", data);
+      if(data?.name && data?.mail && data?.message.trim() && data?.photo){
+        const newMessage = new Message({
+          name: data.name,
+          mail: data.mail,
+          message: data.message.trim(),
+          photo: data.photo,
+        });
+        await newMessage.save();
+        io.emit("chatMessage", data);
+      }
     } catch (error) {
       console.log("something wrong with it", "\n", error);
     }

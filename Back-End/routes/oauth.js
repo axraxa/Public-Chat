@@ -88,7 +88,7 @@ router.get(`/messages/:length`, async (req, res, next) => {
       .skip(length)
       .limit(20);
     if (messages.length > 0) return res.send(messages);
-    return res.send({ msg: "No more message" });
+    return res.send({ msg: "No more messages" });
   } catch (error) {
     console.log(error);
     return res.send({ msg: "Something wrong with it" });
